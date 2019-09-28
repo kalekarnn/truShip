@@ -1,18 +1,11 @@
 package com.pb.shipping.hackathon.truship.model;
 
-import lombok.Data;
-import lombok.EqualsAndHashCode;
-import lombok.ToString;
-
 import javax.persistence.*;
 import java.time.LocalDate;
 import java.time.LocalTime;
 
 @Entity
 @Table(name = "shipment")
-@Data
-@ToString
-@EqualsAndHashCode
 public class Shipment {
 
     @Id
