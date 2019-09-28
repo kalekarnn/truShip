@@ -10,13 +10,13 @@ import javax.persistence.Table;
 public class Vehicle {
 
     @Id
-    private long regNumber;
+    private String regNumber;
 
     @Column
-    private long licenseNo;
+    private String licenseNo;
 
     @Column
-    private long shipperId;
+    private String shipperId;
 
     @Column
     private double volume;
@@ -27,7 +27,7 @@ public class Vehicle {
     public Vehicle() {
     }
 
-    public Vehicle(long regNumber, long licenseNo, long shipperId, double volume, double weight) {
+    public Vehicle(String regNumber, String licenseNo, String shipperId, double volume, double weight) {
         this.regNumber = regNumber;
         this.licenseNo = licenseNo;
         this.shipperId = shipperId;
@@ -35,27 +35,27 @@ public class Vehicle {
         this.weight = weight;
     }
 
-    public long getRegNumber() {
+    public String getRegNumber() {
         return regNumber;
     }
 
-    public void setRegNumber(long regNumber) {
+    public void setRegNumber(String regNumber) {
         this.regNumber = regNumber;
     }
 
-    public long getLicenseNo() {
+    public String getLicenseNo() {
         return licenseNo;
     }
 
-    public void setLicenseNo(long licenseNo) {
+    public void setLicenseNo(String licenseNo) {
         this.licenseNo = licenseNo;
     }
 
-    public long getShipperId() {
+    public String getShipperId() {
         return shipperId;
     }
 
-    public void setShipperId(long shipperId) {
+    public void setShipperId(String shipperId) {
         this.shipperId = shipperId;
     }
 
