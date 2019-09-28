@@ -25,7 +25,7 @@ public class VehicleController {
         return vehicleService.getAll();
     }
 
-    @GetMapping("/{regNo.}")
+    @GetMapping("/{regNo}")
     public Vehicle getVehicle(@PathVariable("regNo") long regNo) throws NotFound {
         return vehicleService.getVehicleByRegNo(regNo);
     }
