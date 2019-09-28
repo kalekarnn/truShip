@@ -29,4 +29,9 @@ public class VehicleController {
     public Vehicle getVehicle(@PathVariable("regNo") long regNo) throws NotFound {
         return vehicleService.getVehicleByRegNo(regNo);
     }
+
+    @GetMapping("/shipperId/{shipperId}")
+    public List<Vehicle> getVehicle(@PathVariable("shipperId") String shipperId) {
+        return vehicleService.getVehicleByShipperId(shipperId);
+    }
 }

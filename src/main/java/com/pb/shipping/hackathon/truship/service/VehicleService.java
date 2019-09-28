@@ -7,7 +7,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class VehicleService {
@@ -20,11 +19,15 @@ public class VehicleService {
         return vehicleRepository.save(vehicle);
     }
 
-    public List<Vehicle> getAll(){
-        return  vehicleRepository.findAll();
+    public List<Vehicle> getAll() {
+        return vehicleRepository.findAll();
     }
 
     public Vehicle getVehicleByRegNo(long regNo) throws NotFound {
         return vehicleRepository.findById(regNo).orElseThrow(NotFound::new);
+    }
+
+    public List<Vehicle> getVehicleByShipperId(String shipperId) {
+        return vehicleRepository.findAllByShipperId(shipperId);
     }
 }
