@@ -23,6 +23,10 @@ public class ShipmentService {
         return shipmentRepository.findAll();
     }
 
+    public List<Shipment> getShipmentByShipperId(long shipperId) {
+        return shipmentRepository.findAllByShipperId(shipperId);
+    }
+
     private Shipment convertTo(CreateShipmentRequest createShipmentRequest) {
         Shipment shipment = new Shipment();
         shipment.setFromLocation(createShipmentRequest.getFromLocation());

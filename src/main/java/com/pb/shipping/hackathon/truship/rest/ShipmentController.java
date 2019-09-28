@@ -8,7 +8,7 @@ import org.springframework.web.bind.annotation.*;
 
 import java.util.List;
 
-@RestController()
+@RestController
 @RequestMapping("/shipment")
 public class ShipmentController {
 
@@ -23,5 +23,10 @@ public class ShipmentController {
     @GetMapping
     public List<Shipment> getAll() {
         return shipmentService.getAll();
+    }
+
+    @GetMapping("/shipperId/{shipperId}")
+    public List<Shipment> getShipmentByShipperId(@PathVariable("shipperId") long shipperId) {
+        return shipmentService.getShipmentByShipperId(shipperId);
     }
 }
