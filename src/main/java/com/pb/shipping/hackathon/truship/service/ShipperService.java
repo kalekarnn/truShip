@@ -25,6 +25,7 @@ public class ShipperService {
         shipment.setShipmentTime(createShipmentRequest.getShipmentTime());
         shipment.setShipperId(createShipmentRequest.getShipperId());
         shipment.setCapacity(new Capacity(createShipmentRequest.getVolume(), createShipmentRequest.getWeight()));
+        shipment.setRegNumber(createShipmentRequest.getRegNumber());
         return shipment;
     }
 }

@@ -13,6 +13,7 @@ public class CreateShipmentRequest {
     private LocalDate shipmentDate;
     private LocalTime shipmentTime;
     private long shipperId;
+    private long regNumber;
 
 
     public String getFromLocation() {
@@ -79,5 +80,11 @@ public class CreateShipmentRequest {
         this.shipperId = shipperId;
     }
 
+    public long getRegNumber() {
+        return regNumber;
+    }
 
+    public void setRegNumber(long regNumber) {
+        this.regNumber = regNumber;
+    }
 }
