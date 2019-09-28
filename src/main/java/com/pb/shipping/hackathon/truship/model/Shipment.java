@@ -1,6 +1,8 @@
 package com.pb.shipping.hackathon.truship.model;
 
 import lombok.Data;
+import lombok.EqualsAndHashCode;
+import lombok.ToString;
 
 import javax.persistence.*;
 import java.time.LocalDate;
@@ -8,7 +10,34 @@ import java.time.LocalTime;
 
 @Entity
 @Table(name = "shipment")
+@Data
+@ToString
+@EqualsAndHashCode
 public class Shipment {
+
+    @Id
+    @GeneratedValue(strategy = GenerationType.AUTO)
+    @Column
+    private long shipmentId;
+
+    @Column
+    private String fromLocation;
+    @Column
+    private String toLocation;
+    @Column
+    private long regNumber;
+    @Column
+    private LocalDate shipmentDate;
+    @Column
+    private LocalTime shipmentTime;
+    @Column
+    @Embedded
+    private Capacity capacity;
+    @Column
+    private double fareEarned;
+    @Column
+    private long shipperId;
+
     public long getShipmentId() {
         return shipmentId;
     }
@@ -80,27 +109,4 @@ public class Shipment {
     public void setShipperId(long shipperId) {
         this.shipperId = shipperId;
     }
-
-    @Id
-    @GeneratedValue(strategy = GenerationType.AUTO)
-    @Column
-    private long shipmentId;
-
-    @Column
-    private String fromLocation;
-    @Column
-    private String toLocation;
-    @Column
-    private long regNumber;
-    @Column
-    private LocalDate shipmentDate;
-    @Column
-    private LocalTime shipmentTime;
-    @Column
-    @Embedded
-    private Capacity capacity;
-    @Column
-    private double fareEarned;
-    @Column
-    private long shipperId;
 }

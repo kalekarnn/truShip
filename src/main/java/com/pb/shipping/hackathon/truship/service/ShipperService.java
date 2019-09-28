@@ -1,6 +1,7 @@
 package com.pb.shipping.hackathon.truship.service;
 
 import com.pb.shipping.hackathon.truship.ext.CreateShipmentRequest;
+import com.pb.shipping.hackathon.truship.model.Capacity;
 import com.pb.shipping.hackathon.truship.model.Shipment;
 import com.pb.shipping.hackathon.truship.repo.ShipmentRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,6 +24,7 @@ public class ShipperService {
         shipment.setShipmentDate(createShipmentRequest.getShipmentDate());
         shipment.setShipmentTime(createShipmentRequest.getShipmentTime());
         shipment.setShipperId(createShipmentRequest.getShipperId());
+        shipment.setCapacity(new Capacity(createShipmentRequest.getVolume(), createShipmentRequest.getWeight()));
         return shipment;
     }
 }
