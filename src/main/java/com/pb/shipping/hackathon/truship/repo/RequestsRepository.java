@@ -10,7 +10,7 @@ import java.util.List;
  * Created by NEX4SXN on 9/28/2019.
  */
 @Repository
-public interface RequestsRepository extends JpaRepository<Requests, Long>{
+public interface RequestsRepository extends JpaRepository<Requests, Long> {
 
     public List<Requests> findByShipmentId(Long shipmentId);
 }

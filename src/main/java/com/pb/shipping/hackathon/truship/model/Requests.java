@@ -3,7 +3,6 @@ package com.pb.shipping.hackathon.truship.model;
 import lombok.Data;
 
 import javax.persistence.*;
-import java.time.LocalDate;
 import java.time.LocalDateTime;
 
 /**

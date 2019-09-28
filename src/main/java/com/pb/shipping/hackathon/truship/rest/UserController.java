@@ -12,7 +12,6 @@ import org.springframework.web.bind.annotation.*;
 
 import javax.validation.Valid;
 import java.time.LocalDateTime;
-import java.util.Date;
 import java.util.List;
 import java.util.Optional;
 
@@ -24,7 +23,7 @@ public class UserController {
     private UserService userService;
 
     @RequestMapping(method = RequestMethod.GET, value = "/shipments/search")
-    public SearchResponse searchShipment(@Valid @RequestBody SearchShipmentRequest searchShipmentRequest){
+    public SearchResponse searchShipment(@Valid @RequestBody SearchShipmentRequest searchShipmentRequest) {
 
         List<Shipment> shipments = userService.searchShipments(searchShipmentRequest);
         SearchResponse response = new SearchResponse();
@@ -33,32 +32,29 @@ public class UserController {
     }
 
     @RequestMapping(method = RequestMethod.PUT, value = "/shipment/book/{requestId}")
-    public ResponseEntity<?> bookShipment(@PathVariable Long requestId){
+    public ResponseEntity<?> bookShipment(@PathVariable Long requestId) {
 
         Optional optional = userService.findById(requestId);
 
-        if (optional.isPresent()){
-            userService.updateRequestsToBook((Requests)optional.get());
+        if (optional.isPresent()) {
+            userService.updateRequestsToBook((Requests) optional.get());
             return new ResponseEntity<>(HttpStatus.OK);
-        }
-        else {
+        } else {
             return new ResponseEntity<>(HttpStatus.NOT_FOUND);
         }
     }
 
     @RequestMapping(method = RequestMethod.POST, value = "/shipment/request")
-    public ResponseEntity<?> bookShipment(@RequestBody Requests request){
+    public ResponseEntity<?> bookShipment(@RequestBody Requests request) {
         request.setRequestDate(LocalDateTime.now());
         userService.saveRequests(request);
         return new ResponseEntity<>(HttpStatus.OK);
     }
 
     @RequestMapping(method = RequestMethod.GET, value = "/shipment/requests/{shipmentId}")
-    public List<Requests> getAllRequestForShipment(@PathVariable Long shipmentId){
+    public List<Requests> getAllRequestForShipment(@PathVariable Long shipmentId) {
         return userService.getAllRequestsByShipmmentID(shipmentId);
     }
-
-
 
 
 }
